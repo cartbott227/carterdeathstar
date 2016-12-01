@@ -22,7 +22,7 @@ namespace carterdeathstar
         int y;
         int s;
 
-        SoundPlayer introsong = new SoundPlayer(Properties.Resources.intro);
+        SoundPlayer introsong = new SoundPlayer(Properties.Resources.intro); 
         SoundPlayer explosion = new SoundPlayer(Properties.Resources.explsionfx);
 
         Font titleFont;
