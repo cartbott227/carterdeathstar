@@ -88,7 +88,7 @@ namespace carterdeathstar
             fg.DrawString("charge down the exhaust shaft of the ship. Only", pFont, pBrush, 20, 120);
 
             Thread.Sleep(2000);
-
+               
             fg.DrawString("a direct hit will destroy the station.", pFont, pBrush, 20, 145);
 
             Thread.Sleep(2000);
