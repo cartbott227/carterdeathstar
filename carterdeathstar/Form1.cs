@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using System.Media;
 
 //Program created by Carter Bott
 //on November 28th, 2016.
@@ -16,16 +17,17 @@ namespace carterdeathstar
 {
     public partial class Form1 : Form
     {
-        Graphics fg;
+        Graphics fg;    //Creates a graphics object
 
-        int x;
+        int x;  //Variables for x and y locations and size
         int y;
         int s;
 
-        SoundPlayer introsong = new SoundPlayer(Properties.Resources.intro); 
-        SoundPlayer explosion = new SoundPlayer(Properties.Resources.explsionfx);
+        SoundPlayer introsong = new SoundPlayer(Properties.Resources.imperial);     //Soundplayers for sound effects
+        SoundPlayer explosion = new SoundPlayer(Properties.Resources.explosionfx);
+        SoundPlayer xwing = new SoundPlayer(Properties.Resources.xwingfx);
 
-        Font titleFont;
+        Font titleFont;     //Fonts, Brushes and Pens for creating strings and graphics
         Font msgFont;
         Font pFont;
         SolidBrush titleBrush;
@@ -40,7 +42,7 @@ namespace carterdeathstar
             Refresh();
         }
 
-        public void endprogram()
+        public void endprogram()    //Ends program after simularion has ran
         {
             this.Close();
         }
@@ -49,6 +51,8 @@ namespace carterdeathstar
         {
             this.BackgroundImage = null;
             Refresh();
+
+            introsong.Play();
 
             clickLabel.Text = "";
 
@@ -104,13 +108,17 @@ namespace carterdeathstar
 
             Thread.Sleep(3000);
 
+            introsong.Stop();
+
             fg.Clear(Color.Black);
 
             Thread.Sleep(3000);
 
-            x = 610;
+            xwing.Play();
+
+            x = 610;    //Sets the initial location of the x and y values
             y = 20;
-            s = 20;
+            s = 20;     //Sets the initial size of the explosion
 
             while (x >= -500) 
             {
@@ -132,7 +140,7 @@ namespace carterdeathstar
                     y++;
                 }
 
-                if (y == 245)
+                if (y == 245)   //Creates an explosion graphic if y is equal to 245
                 {
                     bombBrush = new SolidBrush(Color.Orange);
 
@@ -141,7 +149,12 @@ namespace carterdeathstar
                     s++;
                 }
 
-                if (s == 350)
+                if (s == 21)    //Plays an explosion sound effect if s is equal to 21
+                {
+                    explosion.Play();
+                }
+
+                if (s == 350) //Clears animation if s is equal to 350
                 {
                     fg.Clear(Color.Black);
 
