@@ -116,7 +116,7 @@ namespace carterdeathstar
 
             xwing.Play();
 
-            x = 610;    //Sets the initial location of the x and y values
+            x = 610;    //Sets the initial location of the x and y values 
             y = 20;
             s = 20;     //Sets the initial size of the explosion
 
