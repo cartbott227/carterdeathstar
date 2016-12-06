@@ -47,16 +47,16 @@ namespace carterdeathstar
             this.Close();
         }
 
-        private void Form1_Click(object sender, EventArgs e)
+        private void Form1_Click(object sender, EventArgs e)    //Starts transmission message when the screen is clicked
         {
-            this.BackgroundImage = null;
+            this.BackgroundImage = null;    //Removes the backround image
             Refresh();
 
-            introsong.Play();
+            introsong.Play();   //Starts the intro song
 
             clickLabel.Text = "";
 
-            fg = this.CreateGraphics();
+            fg = this.CreateGraphics();     //Creates a graphics object
 
             titleFont = new Font("Arial", 20, FontStyle.Bold);
             titleBrush = new SolidBrush(Color.Red);
@@ -108,7 +108,7 @@ namespace carterdeathstar
 
             Thread.Sleep(3000);
 
-            introsong.Stop();
+            introsong.Stop(); //Stops the intro sound effect
 
             fg.Clear(Color.Black);
 
@@ -120,10 +120,10 @@ namespace carterdeathstar
             y = 20;
             s = 20;     //Sets the initial size of the explosion
 
-            while (x >= -500) 
+            while (x >= -500) //Draws a death star graphic and xwing fighter while x is greater than or equal to -500
             {
 
-                fg.Clear(Color.Black);
+               fg.Clear(Color.Black);
 
                 deathstarpen = new Pen(Color.White);
                 fg.DrawEllipse(deathstarpen, 150, 80, 300, 300);
@@ -131,7 +131,7 @@ namespace carterdeathstar
                 fg.DrawEllipse(deathstarpen, 290, 240, 20, 20);
                 fg.DrawRectangle(deathstarpen, x, 20, 30, 20);
 
-                if (x < 300 && y < 245)
+                if (x < 300 && y < 245)     //Draws a bomb graphic if x less than 300 and y is less than 245
                 {
                     bombBrush = new SolidBrush(Color.Red);
 
@@ -154,7 +154,7 @@ namespace carterdeathstar
                     explosion.Play();
                 }
 
-                if (s == 350) //Clears animation if s is equal to 350
+                if (s == 350) //Clears animation if s is equal to 350 ands ends the program
                 {
                     fg.Clear(Color.Black);
 
